@@ -27,3 +27,10 @@
 # Clone โปรเจกต์ผ่าน Git
 git clone https://github.com/your-username/auto-clicker.git
 cd auto-clicker
+```
+### 3️⃣ ติดตั้ง dependencies
+```
+pip install -r requirements.txt 
+```
+### 4️⃣ รันโปรแกรม
+python main.py
