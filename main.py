@@ -8,7 +8,13 @@ from pynput.mouse import Button, Controller
 from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QSystemTrayIcon, QMenu
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from PyQt6.QtCore import QUrl, Qt
-from PyQt6.QtGui import QIcon
+from PyQt6.QtGui import QIcon, QPixmap
+from urllib.request import urlretrieve
+
+# ✅ ดาวน์โหลดไอคอนจาก URL
+icon_url = "https://cdn-icons-png.flaticon.com/128/3646/3646251.png"
+icon_path = "icon.png"
+urlretrieve(icon_url, icon_path)  # บันทึกเป็นไฟล์ icon.png
 
 # --------------- [ FLASK BACKEND ] --------------- #
 app = Flask(__name__)
@@ -50,7 +56,10 @@ class AutoClickerApp(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("Auto Clicker")
-        self.setGeometry(100, 100, 600, 400)  # ขนาดหน้าต่าง GUI
+        self.setFixedSize(600, 400)  # กำหนดขนาดหน้าต่างให้คงที่
+
+        # ✅ ตั้งค่าไอคอนหน้าต่างหลัก
+        self.setWindowIcon(QIcon(icon_path))
 
         # ✅ ใช้ QUrl เพื่อโหลด Flask WebView
         self.browser = QWebEngineView()
@@ -65,7 +74,7 @@ class AutoClickerApp(QMainWindow):
 
         # ✅ เพิ่ม System Tray
         self.tray_icon = QSystemTrayIcon(self)
-        self.tray_icon.setIcon(QIcon("icon.png"))  # ตั้งค่าไอคอน (ใส่ไอคอนของคุณ)
+        self.tray_icon.setIcon(QIcon(icon_path))  # ใช้ไอคอนที่ดาวน์โหลดมา
         self.tray_icon.setToolTip("Auto Clicker")
 
         # สร้างเมนู System Tray
