@@ -33,4 +33,6 @@ cd auto-clicker
 pip install -r requirements.txt 
 ```
 ### 4️⃣ รันโปรแกรม
+```
 python main.py
+```
