@@ -25,7 +25,7 @@
 
 ```bash
 # Clone โปรเจกต์ผ่าน Git
-git clone https://github.com/twoza0123/auto-clicker.git
+git clone https://github.com/pltrue/auto-clicker.git
 cd auto-clicker
 ```
 ### 3️⃣ ติดตั้ง dependencies
